@@ -3,7 +3,7 @@
   <arg name="dxl_baud_rate"           default="1000000"/>
   <arg name="namespace"               default="dynamixel_control_motors"/>
 
-  <param name="dynamixel_info"          value="$(find u2du_controller)/config/joint_config.yaml"/>
+  <param name="dynamixel_info"          value="$(find u2d2_controller)/config/joint_config.yaml"/>
 
   <node name="$(arg namespace)" pkg="dynamixel_workbench_controllers" type="dynamixel_workbench_controllers"
         required="true" output="screen" args="$(arg usb_port) $(arg dxl_baud_rate)">

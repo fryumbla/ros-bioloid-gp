@@ -2,7 +2,7 @@
   <arg name="namespace"               default="dynamixel_workbench"/>
   <arg name="is_loop"               default="false"/>
 
-  <param name="$(arg namespace)/trajectory_info" value="$(find my_dynamixel_tutorial)/config/motion.yaml"/>
+  <param name="$(arg namespace)/trajectory_info" value="$(find operators_joint)/config/motion.yaml"/>
 
   <node name="joint_operator" pkg="dynamixel_workbench_operators" type="joint_operator"
         required="true" output="screen" ns="$(arg namespace)">
