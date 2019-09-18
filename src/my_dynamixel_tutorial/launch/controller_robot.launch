@@ -1,0 +1,27 @@
+<launch>
+    <!-- Start tilt joint controller -->
+    <rosparam file="/home/francisco/robotis_GP_ws/src/ros-bioloid-gp/src/my_dynamixel_tutorial/config/config.yaml" command="load"/>
+    <node name="controller_gp_robot" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port pan_tilt_port
+                right_arm_1
+                right_arm_2
+                right_arm_3
+                right_gripper
+                left_arm_1
+                left_arm_2
+                left_arm_3
+                left_gripper
+                torso
+                right_leg_1
+                right_leg_2
+                right_leg_3
+                right_leg_4
+                right_leg_5
+                left_leg_1
+                left_leg_2
+                left_leg_3
+                left_leg_4
+                left_leg_5"
+          output="screen"/>
+</launch>

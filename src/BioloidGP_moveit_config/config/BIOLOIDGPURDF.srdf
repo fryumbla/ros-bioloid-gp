@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="BIOLOIDGPURDF">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="head">
+        <link name="head_link" />
+        <link name="camera" />
+        <joint name="joint_20" />
+        <joint name="joint_21" />
+    </group>
+    <group name="right_arm">
+        <link name="right_arm_link_1" />
+        <link name="right_arm_link_2" />
+        <link name="right_arm_link_3" />
+        <joint name="joint_1" />
+        <joint name="joint_3" />
+        <joint name="joint_5" />
+    </group>
+    <group name="left_arm">
+        <link name="left_arm_link_1" />
+        <link name="left_arm_link_2" />
+        <link name="left_arm_link_3" />
+        <joint name="joint_2" />
+        <joint name="joint_4" />
+        <joint name="joint_6" />
+    </group>
+    <group name="torso">
+        <link name="base_link" />
+        <link name="torso_Link" />
+        <joint name="virtual_joint" />
+        <joint name="joint_19" />
+        <group name="head" />
+        <group name="right_arm" />
+        <group name="left_arm" />
+        <group name="right_leg" />
+        <group name="right_gripper" />
+        <group name="left_gripper" />
+        <group name="left_leg" />
+    </group>
+    <group name="right_leg">
+        <link name="right_leg_link_1" />
+        <link name="right_leg_link_2" />
+        <link name="right_leg_link_3" />
+        <link name="right_leg_link_4" />
+        <link name="right_leg_link_5" />
+        <joint name="joint_9" />
+        <joint name="joint_11" />
+        <joint name="joint_13" />
+        <joint name="joint_15" />
+        <joint name="joint_17" />
+    </group>
+    <group name="right_gripper">
+        <link name="right_gripper" />
+        <joint name="joint_7" />
+    </group>
+    <group name="left_gripper">
+        <link name="left_gripper" />
+        <joint name="joint_8" />
+    </group>
+    <group name="left_leg">
+        <link name="left_leg_link_1" />
+        <link name="left_leg_link_2" />
+        <link name="left_leg_link_3" />
+        <link name="left_leg_link_4" />
+        <link name="left_leg_link_5" />
+        <joint name="joint_10" />
+        <joint name="joint_12" />
+        <joint name="joint_16" />
+        <joint name="joint_14" />
+        <joint name="joint_18" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="ini" group="torso">
+        <joint name="joint_1" value="0" />
+        <joint name="joint_10" value="0" />
+        <joint name="joint_11" value="0" />
+        <joint name="joint_12" value="0" />
+        <joint name="joint_13" value="0" />
+        <joint name="joint_14" value="0" />
+        <joint name="joint_15" value="0" />
+        <joint name="joint_16" value="0" />
+        <joint name="joint_17" value="0" />
+        <joint name="joint_18" value="0" />
+        <joint name="joint_19" value="0" />
+        <joint name="joint_2" value="0" />
+        <joint name="joint_20" value="0" />
+        <joint name="joint_21" value="0" />
+        <joint name="joint_3" value="0" />
+        <joint name="joint_4" value="0" />
+        <joint name="joint_5" value="0" />
+        <joint name="joint_6" value="0" />
+        <joint name="joint_7" value="0" />
+        <joint name="joint_8" value="0" />
+        <joint name="joint_9" value="0" />
+    </group_state>
+    <group_state name="ini" group="head">
+        <joint name="joint_20" value="0" />
+        <joint name="joint_21" value="0" />
+    </group_state>
+    <group_state name="equilibre" group="torso">
+        <joint name="joint_1" value="0.7854" />
+        <joint name="joint_10" value="0" />
+        <joint name="joint_11" value="0" />
+        <joint name="joint_12" value="0" />
+        <joint name="joint_13" value="0" />
+        <joint name="joint_14" value="0" />
+        <joint name="joint_15" value="0" />
+        <joint name="joint_16" value="0" />
+        <joint name="joint_17" value="0" />
+        <joint name="joint_18" value="0" />
+        <joint name="joint_19" value="0" />
+        <joint name="joint_2" value="-0.7854" />
+        <joint name="joint_20" value="0" />
+        <joint name="joint_21" value="0" />
+        <joint name="joint_3" value="0" />
+        <joint name="joint_4" value="0" />
+        <joint name="joint_5" value="-0.7854" />
+        <joint name="joint_6" value="-0.7854" />
+        <joint name="joint_7" value="0" />
+        <joint name="joint_8" value="0" />
+        <joint name="joint_9" value="0" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="right_gripper" parent_link="right_arm_link_3" group="right_gripper" parent_group="right_arm" />
+    <end_effector name="left_gripper" parent_link="left_arm_link_3" group="left_gripper" parent_group="left_arm" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="head_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="left_arm_link_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="right_arm_link_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="torso_Link" reason="Adjacent" />
+    <disable_collisions link1="camera" link2="head_link" reason="Adjacent" />
+    <disable_collisions link1="camera" link2="left_arm_link_1" reason="Never" />
+    <disable_collisions link1="camera" link2="left_leg_link_1" reason="Never" />
+    <disable_collisions link1="camera" link2="right_arm_link_1" reason="Never" />
+    <disable_collisions link1="camera" link2="right_leg_link_1" reason="Never" />
+    <disable_collisions link1="camera" link2="torso_Link" reason="Never" />
+    <disable_collisions link1="head_link" link2="left_arm_link_1" reason="Never" />
+    <disable_collisions link1="head_link" link2="left_leg_link_1" reason="Never" />
+    <disable_collisions link1="head_link" link2="right_arm_link_1" reason="Never" />
+    <disable_collisions link1="head_link" link2="right_leg_link_1" reason="Never" />
+    <disable_collisions link1="head_link" link2="torso_Link" reason="Never" />
+    <disable_collisions link1="left_arm_link_1" link2="left_arm_link_2" reason="Adjacent" />
+    <disable_collisions link1="left_arm_link_1" link2="left_leg_link_1" reason="Never" />
+    <disable_collisions link1="left_arm_link_1" link2="right_arm_link_1" reason="Never" />
+    <disable_collisions link1="left_arm_link_1" link2="right_arm_link_2" reason="Never" />
+    <disable_collisions link1="left_arm_link_1" link2="right_leg_link_1" reason="Never" />
+    <disable_collisions link1="left_arm_link_1" link2="torso_Link" reason="Never" />
+    <disable_collisions link1="left_arm_link_2" link2="left_arm_link_3" reason="Adjacent" />
+    <disable_collisions link1="left_arm_link_2" link2="right_arm_link_1" reason="Never" />
+    <disable_collisions link1="left_arm_link_2" link2="right_arm_link_2" reason="Never" />
+    <disable_collisions link1="left_arm_link_3" link2="left_gripper" reason="Adjacent" />
+    <disable_collisions link1="left_leg_link_1" link2="left_leg_link_2" reason="Adjacent" />
+    <disable_collisions link1="left_leg_link_1" link2="right_arm_link_1" reason="Never" />
+    <disable_collisions link1="left_leg_link_1" link2="torso_Link" reason="Adjacent" />
+    <disable_collisions link1="left_leg_link_2" link2="left_leg_link_3" reason="Adjacent" />
+    <disable_collisions link1="left_leg_link_3" link2="left_leg_link_4" reason="Adjacent" />
+    <disable_collisions link1="left_leg_link_4" link2="left_leg_link_5" reason="Adjacent" />
+    <disable_collisions link1="right_arm_link_1" link2="right_arm_link_2" reason="Adjacent" />
+    <disable_collisions link1="right_arm_link_1" link2="right_leg_link_1" reason="Never" />
+    <disable_collisions link1="right_arm_link_1" link2="torso_Link" reason="Never" />
+    <disable_collisions link1="right_arm_link_2" link2="right_arm_link_3" reason="Adjacent" />
+    <disable_collisions link1="right_arm_link_3" link2="right_gripper" reason="Adjacent" />
+    <disable_collisions link1="right_leg_link_1" link2="right_leg_link_2" reason="Adjacent" />
+    <disable_collisions link1="right_leg_link_1" link2="torso_Link" reason="Adjacent" />
+    <disable_collisions link1="right_leg_link_2" link2="right_leg_link_3" reason="Adjacent" />
+    <disable_collisions link1="right_leg_link_3" link2="right_leg_link_4" reason="Adjacent" />
+    <disable_collisions link1="right_leg_link_4" link2="right_leg_link_5" reason="Adjacent" />
+</robot>
