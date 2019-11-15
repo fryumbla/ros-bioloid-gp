@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: bioloid_gp4
+    relative_path: urdf/bioloid_gp4.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/bioloid_gp4.srdf
+  CONFIG:
+    author_name: Francisco Yumbla
+    author_email: fryumbla@espol.edu.ec
+    generated_timestamp: 1572872540
