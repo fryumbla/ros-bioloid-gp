@@ -5,6 +5,6 @@
 <!-- 
   <param name="dynamixel_info"          value="$(find u2d2_controller)/config/joint_config.yaml"/> -->
 
-  <node name="goal_dynamixel" pkg="u2d2_controller" type="joint_controller.py" output="screen"/>
+  <node name="read_action" pkg="u2d2_controller" type="read_write.py" output="screen"/>
 
 </launch>

@@ -44,7 +44,7 @@
       </geometry>
     </collision>
   </link>
-  <link
+   <link
     name="right_arm_link_1">
     <inertial>
       <origin
@@ -63,7 +63,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 3.1416" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_arm_link_1.STL" />
@@ -89,7 +89,7 @@
     type="continuous">
     <origin
       xyz="0.00874999999999919 -0.0564904194241639 0.00275000000000068"
-      rpy="3.14159265358979 0 3.14159265358979" />
+      rpy="3.14159265358979 0 0" />
     <parent
       link="base_link" />
     <child
@@ -118,7 +118,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_arm_link_2.STL" />
@@ -143,7 +143,7 @@
     name="joint_3"
     type="continuous">
     <origin
-      xyz="0 -0.0230095805758343 0.0179999999999891"
+      xyz="0 0.0230095805758343 0.0179999999999891"
       rpy="-1.5707963267949 0 1.5707963267949" />
     <parent
       link="right_arm_link_1" />
@@ -173,7 +173,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 3.1416" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_arm_link_3.STL" />
@@ -198,7 +198,7 @@
     name="joint_5"
     type="continuous">
     <origin
-      xyz="0 -0.0574 0.0182000000000002"
+      xyz="0 -0.0574 -0.0182000000000002"
       rpy="1.5707963267949 0 0" />
     <parent
       link="right_arm_link_2" />
@@ -228,7 +228,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="3.1416 0 0" />
+        rpy="3.1416 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_gripper.STL" />
@@ -242,7 +242,7 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="3.1416 0 0" />
+        rpy="0 0 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_gripper.STL" />
@@ -253,8 +253,8 @@
     name="joint_7"
     type="continuous">
     <origin
-      xyz="-0.0224999999999999 0.0425 0"
-      rpy="1.5707963267949 -1.5707963267949 0" />
+      xyz="0.0224999999999999 -0.0425 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
     <parent
       link="right_arm_link_3" />
     <child
@@ -283,7 +283,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 3.1416" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/left_arm_link_1.STL" />
@@ -309,7 +309,7 @@
     type="continuous">
     <origin
       xyz="0.00874999999999918 0.0564904194241643 0.00275"
-      rpy="3.14159265358979 0 0" />
+      rpy="3.14159265358979 0 3.1416" />
     <parent
       link="base_link" />
     <child
@@ -338,7 +338,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/left_arm_link_2.STL" />
@@ -363,7 +363,7 @@
     name="joint_4"
     type="continuous">
     <origin
-      xyz="0 -0.0230095805758357 0.0179999999999895"
+      xyz="0 0.0230095805758357 0.0179999999999895"
       rpy="-1.5707963267949 0 -1.5707963267949" />
     <parent
       link="left_arm_link_1" />
@@ -393,7 +393,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="3.1416 0 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/left_arm_link_3.STL" />
@@ -418,8 +418,8 @@
     name="joint_6"
     type="continuous">
     <origin
-      xyz="0 -0.0573999999999997 0.0182000000000009"
-      rpy="1.5707963267949 0 0" />
+      xyz="0 -0.0573999999999997 -0.0182000000000009"
+      rpy="1.5707963267949 0 3.1416" />
     <parent
       link="left_arm_link_2" />
     <child
@@ -473,8 +473,8 @@
     name="joint_8"
     type="continuous">
     <origin
-      xyz="0.0225000000000024 0.0424999999999999 0"
-      rpy="1.5707963267949 1.5707963267949 0" />
+      xyz="0.0225000000000024 -0.0424999999999999 0"
+      rpy="-1.5707963267949 -1.5707963267949 0" />
     <parent
       link="left_arm_link_3" />
     <child
@@ -558,7 +558,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.14159265358979 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_leg_link_1.STL" />
@@ -584,7 +584,7 @@
     type="continuous">
     <origin
       xyz="-0.016 -0.0535000000000009 0"
-      rpy="0 0 0" />
+      rpy="-3.14159265358979 0 3.14159265358979" />
     <parent
       link="torso_Link" />
     <child
@@ -613,7 +613,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_leg_link_2.STL" />
@@ -668,7 +668,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_leg_link_3.STL" />
@@ -693,7 +693,7 @@
     name="joint_13"
     type="continuous">
     <origin
-      xyz="0 -0.0744000000000003 -0.0145000000000005"
+      xyz="0 -0.0744000000000003 0.0145000000000005"
       rpy="0 0 3.14159265358979" />
     <parent
       link="right_leg_link_2" />
@@ -723,7 +723,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="3.1416 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/right_leg_link_4.STL" />
@@ -748,7 +748,7 @@
     name="joint_15"
     type="continuous">
     <origin
-      xyz="0 0.0750000000000001 0.0145"
+      xyz="0 0.0750000000000001 -0.0145"
       rpy="-1.5707963267949 0 3.14159265358979" />
     <parent
       link="right_leg_link_3" />
@@ -803,8 +803,8 @@
     name="joint_17"
     type="continuous">
     <origin
-      xyz="-0.0138000000000001 0 -9.99999999998225E-05"
-      rpy="1.5707963267949 0 -1.5707963267949" />
+      xyz="0.0138000000000001 0 -9.99999999998225E-05"
+      rpy="1.5707963267949 0 1.5707963267949" />
     <parent
       link="right_leg_link_4" />
     <child
@@ -859,7 +859,7 @@
     type="continuous">
     <origin
       xyz="0.016 -0.0535000000000007 0"
-      rpy="3.14159265358979 0 -3.14159265358979" />
+      rpy="3.14159265358979 0 3.14159265358979" />
     <parent
       link="torso_Link" />
     <child
@@ -1053,7 +1053,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="3.1416 3.1416 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/left_leg_link_5.STL" />
@@ -1079,7 +1079,7 @@
     type="continuous">
     <origin
       xyz="0.0137999999999867 0 -9.9999999999989E-05"
-      rpy="-1.5707963267949 0 1.5707963267949" />
+      rpy="1.5707963267949 0 -1.5707963267949" />
     <parent
       link="left_leg_link_4" />
     <child
@@ -1108,7 +1108,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 3.1416 3.1416" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/head_link.STL" />
@@ -1134,7 +1134,7 @@
     type="continuous">
     <origin
       xyz="0.00025 0 0.05555"
-      rpy="3.1416 0 -1.5708" />
+      rpy="3.1416 3.1416 1.5708" />
     <parent
       link="base_link" />
     <child
@@ -1163,7 +1163,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="3.1416 0 0" />
       <geometry>
         <mesh
           filename="package://bioloid_gp4/meshes/camera.STL" />
@@ -1188,8 +1188,8 @@
     name="joint_21"
     type="continuous">
     <origin
-      xyz="0 0 -0.0537001030776406"
-      rpy="0 1.5707963267949 0" />
+      xyz="0 0 0.0537001030776406"
+      rpy="0 -1.5707963267949 0" />
     <parent
       link="head_link" />
     <child
