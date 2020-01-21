@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="paused" default="false"/>
+  <arg name="paused" default="true"/>
   <arg name="gazebo_gui" default="true"/>
   <arg name="urdf_path" default="$(find bioloid_gp4)/urdf/bioloid_gp4.urdf"/>
 
@@ -15,7 +15,7 @@
   <param name="robot_description" textfile="$(arg urdf_path)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 0 -y 0 -z 0"
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model bioloid_gp4 -x 0 -y 0 -z 0.301"
     respawn="false" output="screen" />
 
   <include file="$(find bioloid_moveit_gp4)/launch/ros_controllers.launch"/>

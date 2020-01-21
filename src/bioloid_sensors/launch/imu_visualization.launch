@@ -1,0 +1,6 @@
+<launch>
+
+
+  <node name="imu_visual" pkg="bioloid_sensors" type="imu.py" output="screen"/>
+
+</launch>

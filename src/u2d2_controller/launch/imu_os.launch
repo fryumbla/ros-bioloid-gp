@@ -1,0 +1,6 @@
+<launch>
+
+
+  <node name="imu_sensor" pkg="u2d2_controller" type="imu.py" output="screen"/>
+
+</launch>

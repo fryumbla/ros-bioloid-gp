@@ -5,6 +5,6 @@
 <!-- 
   <param name="dynamixel_info"          value="$(find u2d2_controller)/config/joint_config.yaml"/> -->
 
-  <node name="read_action" pkg="u2d2_controller" type="read_write.py" output="screen"/>
+  <node name="ros_bioloid_gp_communication" pkg="u2d2_controller" type="read_write.py" output="screen"/>
 
 </launch>

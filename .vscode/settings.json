@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/francisco/quadruped_ws/devel/lib/python2.7/dist-packages",
+        "/home/francisco/robocare_ws/devel/lib/python2.7/dist-packages",
+        "/home/francisco/robotis_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}

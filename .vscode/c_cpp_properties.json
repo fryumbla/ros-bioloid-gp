@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/francisco/quadruped_ws/devel/include/**",
+                "/home/francisco/robocare_ws/devel/include/**",
+                "/home/francisco/robotis_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sensors/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_vrep/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-vision/src/darknet_ros/darknet_ros/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/DynamixelSDK/ros/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/dynamixel-workbench/dynamixel_workbench_controllers/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/dynamixel-workbench/dynamixel_workbench_operators/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/dynamixel-workbench/dynamixel_workbench_single_manager/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/dynamixel-workbench/dynamixel_workbench_single_manager_gui/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_sdk/dynamixel-workbench/dynamixel_workbench_toolbox/include/**",
+                "/home/francisco/schunk_ws/src/ik_control/include/**",
+                "/home/francisco/quadruped_ws/src/quadruped_robot/quadruped_communication/include/**",
+                "/home/francisco/quadruped_ws/src/quadruped_robot/quadruped_description/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-vision/src/realsense-ros/realsense2_camera/include/**",
+                "/home/francisco/schunk_ws/src/schunk_control/include/**",
+                "/home/francisco/robotis_ws/src/ros-bioloid-gp/src/u2d2_controller/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

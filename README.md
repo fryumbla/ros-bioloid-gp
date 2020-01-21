@@ -1,6 +1,7 @@
 # ros-bioloid-gp
 
 
+este esta estable 
 roslaunch u2d2_controller dynamixel_controller.launch      start the comunication for all dynamixel and wait the goal position
 
 roslaunch u2d2_controller dynamixel_controller.launch      start the comunication for all Dynamixel motors   the output is the dynamixel_workbench
@@ -18,6 +19,12 @@ roslaunch bioloid_gp4 displayfran.launch       este de aca es la mia per debo si
 
 
 
+listo el programa de comunicacion y control 
+roslaunch bioloid_gp4 displayfran.launch
+roslaunch u2d2_controller read_write.launch
+open vrep and play
+rosrun bioloid_vrep comunication
+
 
 
 
@@ -25,4 +32,4 @@ el ejemplo tutorial utiliza el paquede dynamixel_controller
 
 u2d2 controler utiliza el paquete dynamixel_workbench_controllers falta terminar el .yaml con toda la configuracion de los joints
 
-rosrun rqt_gui rqt_gui sirve para visualizat y manejar topicos enviar informacion
+
