@@ -76,9 +76,7 @@
     </visual>
   </link>
 
-
-
-   <link
+  <link
     name="right_arm_link_1">
     <inertial>
       <origin
