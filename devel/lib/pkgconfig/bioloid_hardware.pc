@@ -1,8 +1,0 @@
-prefix=/home/francisco/robotis_ws/src/ros-bioloid-gp/devel
-
-Name: bioloid_hardware
-Description: Description of bioloid_hardware
-Version: 0.0.0
-Cflags: -I/home/francisco/robotis_ws/src/ros-bioloid-gp/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime rospy std_msgs sensor_msgs vision_msgs geometry_msgs trajectory_msgs

@@ -157,7 +157,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/bioloid_vrep_node.cpp)
 add_executable(comunication src/vrep_control.cpp ${SOURCES} ${HEADERS})
-add_executable(example src/move_example.cpp ${SOURCES} ${HEADERS})
+# add_executable(example src/move_example.cpp ${SOURCES} ${HEADERS})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -169,14 +169,14 @@ add_executable(example src/move_example.cpp ${SOURCES} ${HEADERS})
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(comunication comunication_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(example example_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(example example_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(comunication ${catkin_LIBRARIES})
-target_link_libraries(example ${catkin_LIBRARIES})
+# target_link_libraries(example ${catkin_LIBRARIES})
 
 #############
 ## Install ##

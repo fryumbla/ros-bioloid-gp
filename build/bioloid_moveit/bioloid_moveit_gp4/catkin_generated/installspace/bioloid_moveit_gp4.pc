@@ -1,8 +1,0 @@
-prefix=/home/francisco/robotis_ws/src/ros-bioloid-gp/install
-
-Name: bioloid_moveit_gp4
-Description: Description of bioloid_moveit_gp4
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

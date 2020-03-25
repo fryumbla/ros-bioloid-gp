@@ -1,8 +1,0 @@
-prefix=/home/francisco/robotis_ws/src/ros-bioloid-gp/devel
-
-Name: bioloid_sensors
-Description: Description of bioloid_sensors
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

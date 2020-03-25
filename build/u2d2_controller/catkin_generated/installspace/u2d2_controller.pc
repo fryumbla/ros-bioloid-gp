@@ -1,8 +1,0 @@
-prefix=/home/francisco/robotis_ws/src/ros-bioloid-gp/install
-
-Name: u2d2_controller
-Description: Description of u2d2_controller
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: actionlib actionlib_msgs roscpp std_msgs

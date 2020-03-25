@@ -1,8 +1,0 @@
-prefix=/home/francisco/robotis_ws/src/ros-bioloid-gp/install
-
-Name: bioloid_gp_master
-Description: Description of bioloid_gp_master
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
