@@ -1,5 +1,0 @@
-<launch> 
-
-    <node name="vrep_communication" pkg="bioloid_vrep" type="communication" output="screen"/>
-
-</launch>
