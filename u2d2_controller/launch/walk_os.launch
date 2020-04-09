@@ -1,6 +1,0 @@
-<launch>
-
-
-  <node name="walk_action" pkg="u2d2_controller" type="walk.py" output="screen"/>
-
-</launch>

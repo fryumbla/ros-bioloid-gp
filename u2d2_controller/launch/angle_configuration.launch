@@ -1,6 +1,0 @@
-<launch>
-
-
-  <node name="joint_state_publisher" pkg="u2d2_controller" type="angle_configuration.py" output="screen"/>
-
-</launch>
