@@ -1,8 +1,9 @@
-# ros-bioloid-gp
+
+[![ROS](http://www.ros.org/wp-content/uploads/2013/10/rosorg-logo1.png)](http://www.ros.org/)
 
 
-<h1 style="border:none"> RISE ABB IRB-120 Manipulation Package </h1>
-&copy; 2018, Susung Park
+<h1 style="border:none"> SOCIAL ROBOT (BIOLOID GP) Simulation and Manipulation Package </h1>
+&copy; 2020, Francisco Yumbla
 
 <hr>
 
@@ -10,25 +11,23 @@
 
 ### 1.1. System Requirements
 
-This package is written an tested on **Ubuntu 16.04 + ROS Kinetic** environment. Dependencies are also for this environment.
+This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment. Dependencies are also for this environment.
 
 ### 1.2. Dependencies Prerequisites
 
 There are a number of dependencies in this package, since the ABB robot is operated by ROS-Industrial package. Please install all the packages listed below in your Ubuntu PC, in the given order.
 
-* ros-kinetic-desktop-full
-* ros-kinetic-industrial-core
-* ros-kinetic-industrial-msgs
-* ros-kinetic-industrial-robot-client
-* ros-kinetic-industrial-robot-simulator
-* ros-kinetic-industrial-utils
-* ros-kinetic-abb
-* abb_experimental [1]
-* ros-kinetic-moveit
+* ros-melodic-desktop-full
+* ros-melodic-industrial-core
+* ros-melodic-industrial-msgs
+* ros-melodic-industrial-robot-client
+* ros-melodic-industrial-robot-simulator
+* ros-melodic-industrial-utils
+* ros-melodic-moveit
 
-    [1] abb_experimental is literally *experimental*, so it is not configured as an `.deb` packag. Therefore, it should be downloaded from the Github reposity. Do `git clone https://github.com/ros-industrial/abb_experimental` inside `${ros_workspace}/src`.
+    <!-- [1] abb_experimental is literally *experimental*, so it is not configured as an `.deb` packag. Therefore, it should be downloaded from the Github reposity. Do `git clone https://github.com/ros-industrial/abb_experimental` inside `${ros_workspace}/src`. -->
 
-Now,Extract the metapackage `rise_assembler` into `${ros_workspace}/src`. `catkin_make` your workspace.
+Now,Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. `catkin_make` your workspace.
 
 
 ## 2. Structure of Package
@@ -38,74 +37,34 @@ To be updated...
 
 ## 3. How to Use
 
-### 3.1. CLI Controller
+### 3.1. Simulation
 
-You can use the CLI controller. Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get a CLI controller displayed up on your console. To see the list of commands, type `h` and `Enter`.
+1. V-REP execution (Since simulation is performed with vrep remote api, roscore must be executed first)
 
-### 3.2. GUI Controller
+2. Run the modules needed for the demo with roslaunch
+   ```
+   roslaunch socialrobot_state demo_init.launch
+   ```
 
-You can use the GUI controller. Type `rosrun rise_assembler assembler_gui_controller` in the terminal, and then the GUI console will pop out. This program is not complete yet, so it might be prone to errors. Please be careful when using the program.
+Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get the comunication TTL to the Dynamixel motors. 
+To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
 
-### 3.3. Path-Planning APIs
+### 3.2. Real Robot
+
+You can use the communication controller. Type `rosrun bioloid_gp_communication communication.py` in the terminal, , and you will get the comunication TTL to the Dynamixel motors. 
+To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
+
+<!-- ### 3.3. Path-Planning APIs
 
 The script `assembler_controller.py` provides a convenient method to plan paths. One should give the pose of end-effector in the following form; [x, y, z, roll, pitch, yaw].
 
 * `move_to_pose()`: move to designated pose 
 * `move_by_cartesian_path()`: move to designated pose, in straight path.
-* `rotate_joint()`: rotate specific joint by desiged angle. This method gets the angles of all 6 joints, add the given value to specified joint, and then makes the robot go to that configuration. Therefore, the joints that are not designated to move might move by a little angle, due to controller errors.
+* `rotate_joint()`: rotate specific joint by desiged angle. This method gets the angles of all 6 joints, add the given value to specified joint, and then makes the robot go to that configuration. Therefore, the joints that are not designated to move might move by a little angle, due to controller errors. -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-este esta estable 
+<!-- este esta estable 
 roslaunch u2d2_controller dynamixel_controller.launch      start the comunication for all dynamixel and wait the goal position
 
 roslaunch u2d2_controller dynamixel_controller.launch      start the comunication for all Dynamixel motors   the output is the dynamixel_workbench
@@ -130,10 +89,8 @@ open vrep and play
 rosrun bioloid_vrep comunication
 
 
-
-
 el ejemplo tutorial utiliza el paquede dynamixel_controller
 
-u2d2 controler utiliza el paquete dynamixel_workbench_controllers falta terminar el .yaml con toda la configuracion de los joints
+u2d2 controler utiliza el paquete dynamixel_workbench_controllers falta terminar el .yaml con toda la configuracion de los joints -->
 
 
