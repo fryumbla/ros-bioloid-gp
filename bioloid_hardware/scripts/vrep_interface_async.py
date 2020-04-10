@@ -389,7 +389,7 @@ from vision_msgs.msg import BoundingBox3D
 from trajectory_msgs.msg import JointTrajectory
 from geometry_msgs.msg import *
 from std_msgs.msg import *
-# from bioloid_hardware.srv import *   // francisco cambio
+from bioloid_hardware.srv import *   # francisco cambio
 import rosparam
 import rospkg
 
@@ -465,15 +465,15 @@ class RosInterface:
         return RosInterface.ACTION_READY
 
 
-    # def callback_get_state(self, req):
-    #     res = VrepGetSimStateResponse()
-    #     #if self.action_state is RosInterface.ACTION_BUSY:
-    #     #    res.state = VrepGetSimStateResponse.RUNNING_STATE
-    #     #elif self.action_state is RosInterface.ACTION_READY:
-    #     #    res.state = VrepGetSimStateResponse.READY_STATE
-    #     res.state = self.action_state
+    def callback_get_state(self, req):
+        res = VrepGetSimStateResponse()
+        #if self.action_state is RosInterface.ACTION_BUSY:
+        #    res.state = VrepGetSimStateResponse.RUNNING_STATE
+        #elif self.action_state is RosInterface.ACTION_READY:
+        #    res.state = VrepGetSimStateResponse.READY_STATE
+        res.state = self.action_state
         
-    #     return res
+        return res
 
 
     def update_goal(self):
@@ -585,7 +585,7 @@ if __name__ == '__main__':
     # robot_name = rospy.get_param('/robot_name')
     # sim_env = rospy.get_param(rospy.get_name() + '/vrep_environment')
     # sim_model_path = rospy.get_param('/robot_description_path') + '/vrep_model/' + robot_name + '_' + sim_env + '.ttt'
-    sim_model_path = '/home/francisco/robotis_ws/src/ros-bioloid-gp/src/bioloid_vrep/scenes/bioloid_gp4.ttt'
+    sim_model_path = '/home/francisco/robotis_ws/src/ros-bioloid-gp/bioloid_vrep/scenes/bioloid_gp4.ttt'
 
     # load sim model
     if vrep_if.load_sim_model(sim_model_path):
@@ -602,9 +602,9 @@ if __name__ == '__main__':
     pub_vrep_state = rospy.Publisher('~vrep_state', Int32, queue_size=10)
 
     # ROS services
-    # srv_get_obstacles = rospy.Service('~get_obstacles', VrepGetObstacles, ros_if.callback_get_obstacle)
-    # srv_set_motion = rospy.Service('~set_motion', VrepSetJointTrajectory, ros_if.callback_set_motion)
-    # srv_get_state = rospy.Service('~get_state', VrepGetSimState, ros_if.callback_get_state)
+    srv_get_obstacles = rospy.Service('~get_obstacles', VrepGetObstacles, ros_if.callback_get_obstacle)
+    srv_set_motion = rospy.Service('~set_motion', VrepSetJointTrajectory, ros_if.callback_set_motion)
+    srv_get_state = rospy.Service('~get_state', VrepGetSimState, ros_if.callback_get_state)
     #srv_get_obstacle_pose = rospy.Service('check_action', CheckAction, self._callback_check_action)
     #srv_getMotion = rospy.Service('get_motion', GetMotion, self._callback_get_motion)
 

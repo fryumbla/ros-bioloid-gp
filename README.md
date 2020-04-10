@@ -1,6 +1,4 @@
-
 [![ROS](http://www.ros.org/wp-content/uploads/2013/10/rosorg-logo1.png)](http://www.ros.org/)
-
 
 <h1 style="border:none"> SOCIAL ROBOT (BIOLOID GP) Simulation and Manipulation Package </h1>
 &copy; 2020, Francisco Yumbla
@@ -12,6 +10,8 @@
 ### 1.1. System Requirements
 
 This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment. Dependencies are also for this environment.
+
+V-REP must be installed in advance.
 
 ### 1.2. Dependencies Prerequisites
 
