@@ -27,8 +27,37 @@ There are a number of dependencies in this package, since the ABB robot is opera
 
     <!-- [1] abb_experimental is literally *experimental*, so it is not configured as an `.deb` packag. Therefore, it should be downloaded from the Github reposity. Do `git clone https://github.com/ros-industrial/abb_experimental` inside `${ros_workspace}/src`. -->
 
-Now,Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. `catkin_make` your workspace.
 
+### 1.2. Build
+
+Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. `catkin_make` your workspace.
+```
+git clone --recursive https://github.com/fryumbla/ros-bioloid-gp.git
+catkin_make
+```
+
+
+
+### 1.3. V-REP
+
+The bioloid-gp-project uses  a v-rep simulator (version 3.5.0 or higher).
+
+Download: [V-REP Linux](http://www.coppeliarobotics.com/downloads.html)
+
+Decompress
+```
+tar -xvzf {file_name}
+```
+
+Execution
+```
+cd {v-rep directory path}
+./vrep.sh
+```
+To work with ROS, the socialrobot project uses a remote api. Modify the remoteApiConnections.txt file in the vrep directory to enable it .
+```
+portIndex1_port             = 19997
+```
 
 ## 2. Structure of Package
 
@@ -39,6 +68,8 @@ To be updated...
 
 ### 3.1. Simulation
 
+#### 3.1.1 V-REP Simulation
+
 1. V-REP execution (Since simulation is performed with vrep remote api, roscore must be executed first)
 
 2. Run the modules needed for the demo with roslaunch
@@ -48,6 +79,19 @@ To be updated...
 
 Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get the comunication TTL to the Dynamixel motors. 
 To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
+
+#### 3.1.2 Gazebo Simulation
+
+1. V-REP execution (Since simulation is performed with vrep remote api, roscore must be executed first)
+
+2. Run the modules needed for the demo with roslaunch
+   ```
+   roslaunch socialrobot_state demo_init.launch
+   ```
+
+Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get the comunication TTL to the Dynamixel motors. 
+To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
+
 
 ### 3.2. Real Robot
 

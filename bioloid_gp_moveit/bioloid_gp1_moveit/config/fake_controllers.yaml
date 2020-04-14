@@ -1,0 +1,41 @@
+controller_list:
+  - name: fake_rigth_arm_controller
+    joints:
+      - joint_1
+      - joint_3
+      - joint_5
+  - name: fake_left_arm_controller
+    joints:
+      - joint_4
+      - joint_6
+  - name: fake_right_leg_controller
+    joints:
+      - joint_9
+      - joint_11
+      - joint_13
+      - joint_15
+      - joint_17
+  - name: fake_left_leg_controller
+    joints:
+      - joint_10
+      - joint_12
+      - joint_14
+      - joint_16
+      - joint_18
+  - name: fake_body_controller
+    joints:
+      - joint_1
+      - joint_3
+      - joint_5
+      - joint_10
+      - joint_12
+      - joint_14
+      - joint_16
+      - joint_18
+      - joint_9
+      - joint_11
+      - joint_13
+      - joint_15
+      - joint_17
+      - joint_4
+      - joint_6

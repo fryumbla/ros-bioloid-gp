@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: bioloidgp_social_robot
+    relative_path: urdf/bioloidgp_social_robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/bioloidgp_social_robot.srdf
+  CONFIG:
+    author_name: Francisco Yumbla
+    author_email: fryumbla@espol.edu.ec
+    generated_timestamp: 1586869647

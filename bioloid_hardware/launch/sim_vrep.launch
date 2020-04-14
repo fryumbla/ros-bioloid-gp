@@ -1,9 +1,0 @@
-<!-- -->
-<launch>
-  <arg name="sim_environment" default="default"/>
-
-  <node name="sim_interface" pkg="bioloid_hardware" type="vrep_interface_async.py" output="screen">
-    <param name="vrep_environment" value="$(arg sim_environment)"/>
-  </node>
-  
-</launch>
