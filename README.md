@@ -13,6 +13,11 @@ This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment.
 
 V-REP must be installed in advance.
 
+##### Jetson Nano
+
+Getting Started: https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
+Ros installer: https://www.stereolabs.com/blog/ros-and-nvidia-jetson-nano/
+
 ### 1.2. Dependencies Prerequisites
 
 There are a number of dependencies in this package, since the ABB robot is operated by ROS-Industrial package. Please install all the packages listed below in your Ubuntu PC, in the given order.
