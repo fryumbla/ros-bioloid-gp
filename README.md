@@ -52,7 +52,7 @@ git clone --recursive https://github.com/fryumbla/ros-bioloid-gp.git
 catkin_make
 ```
 
-### 1.3. V-REP
+### 1.4. V-REP
 
 The bioloid-gp-project uses  a v-rep simulator (version 3.5.0 or higher).
 
