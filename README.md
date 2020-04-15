@@ -9,18 +9,19 @@
 
 ### 1.1. System Requirements
 
-#### 1.1.1 For simulation in a Desktop 
-
 This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment. Dependencies are also for this environment.
 
-V-REP must be installed in advance.
+#### 1.1.1 Desktop 
+
+Install ROS in your Ubuntu 18.04 computer (follow this tutorials): http://wiki.ros.org/melodic/Installation/Ubuntu
+
+Create a ROS Workspace: ~/catkin_ws
 
 #### 1.1.2 Jetson Nano
 
-Getting Started: https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
+Getting Jetson Nano Started: https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
 
-Ros installer (follow this tutorials to install ROS Melodic in jetson nano): 
-http://wiki.ros.org/melodic/Installation/Ubuntu
+Ros installer (follow this tutorials to install ROS Melodic in jetson nano): http://wiki.ros.org/melodic/Installation/Ubuntu
 
 Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
 ```
@@ -28,6 +29,7 @@ sudo apt install ros-melodic-desktop
 ```
 
 Note: “ROS Desktop Full” is a more complete package, however it is not recommended for an embedded platform; 2D/3D simulators will be installed with it and they take too much space on ROM, and are too computationally hungry to be used on the Jetson Nano.
+
 
 ### 1.2. Dependencies Prerequisites
 
