@@ -9,39 +9,48 @@
 
 ### 1.1. System Requirements
 
+#### 1.1.1 For simulation in a Desktop 
+
 This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment. Dependencies are also for this environment.
 
 V-REP must be installed in advance.
 
-##### Jetson Nano
+#### 1.1.2 Jetson Nano
 
 Getting Started: https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
-Ros installer: https://www.stereolabs.com/blog/ros-and-nvidia-jetson-nano/
+
+Ros installer (follow this tutorials to install ROS Melodic in jetson nano): 
+http://wiki.ros.org/melodic/Installation/Ubuntu
+
+Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
+```
+sudo apt install ros-melodic-desktop
+```
+
+Note: “ROS Desktop Full” is a more complete package, however it is not recommended for an embedded platform; 2D/3D simulators will be installed with it and they take too much space on ROM, and are too computationally hungry to be used on the Jetson Nano.
 
 ### 1.2. Dependencies Prerequisites
 
-There are a number of dependencies in this package, since the ABB robot is operated by ROS-Industrial package. Please install all the packages listed below in your Ubuntu PC, in the given order.
+Please install all the packages listed below in your Ubuntu PC or Jetson Nano, in the given order.
 
-* ros-melodic-desktop-full
-* ros-melodic-industrial-core
-* ros-melodic-industrial-msgs
-* ros-melodic-industrial-robot-client
-* ros-melodic-industrial-robot-simulator
-* ros-melodic-industrial-utils
+* ros-melodic-
+* ros-melodic-
+* ros-melodic-
+* ros-melodic-
+* ros-melodic-
+* ros-melodic-
 * ros-melodic-moveit
 
     <!-- [1] abb_experimental is literally *experimental*, so it is not configured as an `.deb` packag. Therefore, it should be downloaded from the Github reposity. Do `git clone https://github.com/ros-industrial/abb_experimental` inside `${ros_workspace}/src`. -->
 
 
-### 1.2. Build
+### 1.3 Build
 
 Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. `catkin_make` your workspace.
 ```
 git clone --recursive https://github.com/fryumbla/ros-bioloid-gp.git
 catkin_make
 ```
-
-
 
 ### 1.3. V-REP
 
