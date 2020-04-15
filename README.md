@@ -35,7 +35,10 @@ Note: “ROS Desktop Full” is a more complete package, however it is not recom
 
 Please install all the packages listed below in your Ubuntu PC or Jetson Nano, in the given order.
 
-* ros-melodic-
+For description package:
+* ros-melodic-joint-state-publisher
+* ros-melodic-joint-state-publisher-gui
+
 * ros-melodic-
 * ros-melodic-
 * ros-melodic-
