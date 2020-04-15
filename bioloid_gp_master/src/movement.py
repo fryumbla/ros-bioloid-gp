@@ -20,7 +20,7 @@ def main():
 			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==3):
 			#parado
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==4):
 			#derecha alza
 			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]		

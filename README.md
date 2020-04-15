@@ -91,25 +91,28 @@ To be updated...
 
 1. V-REP execution (Since simulation is performed with vrep remote api, roscore must be executed first)
 
-2. Run the modules needed for the demo with roslaunch
+2. Run the next node for the communication Vrep to ros
    ```
-   roslaunch socialrobot_state demo_init.launch
+   rosrun bioloid_vrep comunication
    ```
 
-Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get the comunication TTL to the Dynamixel motors. 
 To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
+This node publis the joints goals in the topic `/joint_goals`
 
 #### 3.1.2 Gazebo Simulation
 
-1. V-REP execution (Since simulation is performed with vrep remote api, roscore must be executed first)
-
-2. Run the modules needed for the demo with roslaunch
+1. Launch the robot in gazebo
    ```
-   roslaunch socialrobot_state demo_init.launch
+   roslaunch bioloidgp_social_robot gazebo.launch
+
    ```
 
-Type `rosrun rise_assembler assembler_manual_controller` in the terminal, and you will get the comunication TTL to the Dynamixel motors. 
+2. Run the next node for the communication ROS to Gazebo
+   ```
+   rosrun bioloid_gp_master communitation_gazebo.py 
+   ```
 To see the list of movement, type `rosrun bioloid_gp_master movement.py` program, introduce the number do you want to move `1 2 3` and `Enter`.
+This node publis the joints goals in the topic `/joint_goals`
 
 
 ### 3.2. Real Robot
@@ -148,6 +151,7 @@ roslaunch bioloid_gp4 displayfran.launch       este de aca es la mia per debo si
 listo el programa de comunicacion y control 
 roslaunch bioloid_gp4 displayfran.launch
 roslaunch u2d2_controller read_write.launch
+
 open vrep and play
 rosrun bioloid_vrep comunication
 
