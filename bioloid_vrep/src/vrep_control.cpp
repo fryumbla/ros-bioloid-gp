@@ -56,7 +56,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "ros_vrep_communication");
     ros::NodeHandle nh = ros::NodeHandle();
     
-    ros::Subscriber sub = nh.subscribe("/joint_goals", 2000, joint_callback);
+    ros::Subscriber sub = nh.subscribe("/joint_states", 2000, joint_callback);
 
     // Waits for simulation time update.
     ros::Time last_ros_time_;

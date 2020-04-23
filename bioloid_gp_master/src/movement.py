@@ -17,29 +17,29 @@ def main():
 			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==2):
 			print("dos")
-			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,-0.5]
 		if (number==3):
 			#parado
-			joint_position_state=[0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0.5]
 		if (number==4):
 			#derecha alza
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]		
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0.3,0.5]		
 		if (number==5):
 			# primer paso
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,-0.3,0]
 		if (number==6):
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]	
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0.3,0,0,0,0,0,0,0,0,0,0,0,0]	
 		if (number==7):
 			# segundo paso
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==8):
 			# segundo paso
-			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+			joint_position_state=[0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,0.5,0,-0.3,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==9):
 			# segundo paso
 			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 					
-		pub = rospy.Publisher('joint_goals', JointState, queue_size=10)
+		pub = rospy.Publisher('joint_states', JointState, queue_size=10)
 		# rate = rospy.Rate(1000000) # 10hz
 		joints_states = JointState()
 		joints_states.header = Header()
