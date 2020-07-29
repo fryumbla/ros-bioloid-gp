@@ -5,14 +5,23 @@ import rospy
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Header
 
-def main():
 
+
+#Dimensiones de la herramienta y el brazo
+longTool= 0.0255
+armLenghts[5] = {0.047, 0.0145, 0.025, 0.0675, (0.0745+longTool)}
+#Dimensiones de la pierna
+LegLenghts[5] = {0.0385, 0.031, 0.0145, 0.075, 0.0295}
+
+
+def main():
+	
 
     rospy.init_node("stand_up")
 
-    while not rospy.is_shutdown():
+	while not rospy.is_shutdown():
         
-  		number = input ("Enter number: ")
+		number = input ("Enter number: ")
 		if (number==1):
 			joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		if (number==2):

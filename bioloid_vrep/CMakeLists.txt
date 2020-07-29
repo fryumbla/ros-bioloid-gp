@@ -168,7 +168,7 @@ add_executable(comunication src/vrep_control.cpp ${SOURCES} ${HEADERS})
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(comunication comunication_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(comunication comunication_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # add_dependencies(example example_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
