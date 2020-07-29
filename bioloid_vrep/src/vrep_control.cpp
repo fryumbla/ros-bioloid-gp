@@ -1,6 +1,7 @@
-extern "C" {
-    #include "/home/francisco/robotis_ws/src/ros-bioloid-gp/bioloid_vrep/remoteApi/extApi.h"
-}
+// extern "C" {
+//     #include "/home/francisco/robotis_ws/src/ros-bioloid-gp/bioloid_vrep/remoteApi/extApi.h"
+// }
+#include "../remoteApi/extApi.h"
 #include <iostream>
 #include <string>
 #include <ros/ros.h>
