@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# este es para controlar los motores con SDK 
-
 import rospy
 import roslib
 import os
@@ -10,16 +7,14 @@ from sensor_msgs.msg import JointState
 from std_msgs.msg import Header
 from dynamixel_sdk import *                    # Uses Dynamixel SDK library
 
-
 # Control table address for AX-12A and AX-18A
-
 #READ AND WRITE
 AX_BAUD_RATE               = 4
 AX_RETURN_DELAY_TIME       = 5
 AX_ANGLE_MINIMUN           = 6
 AX_ANGLE_MAXIMUN           = 8
 
-AX_TORQUE_ENABLE           = 24               # Control table address is different in Dynamixel model
+AX_TORQUE_ENABLE           = 24              
 AX_LED                     = 25
 CW_COMPILANCE_MARGIN       = 26
 CCW_COMPILANCE_MARGIN      = 27
@@ -44,36 +39,33 @@ AX_PUNCH                   = 48     #Minimum Current Threshold
 PROTOCOL_VERSION            = 1.0               # See which protocol version is used in the Dynamixel
 # Default setting
 
-BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB1'    # Check which port is being used on your controller
-
 DXL_ID                      = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]          # Dynamixel ID : 1
 ANGLE_MINIMUN               = [2,   2,   350,   2,195,233,204,384,363,151,120,138,511, 2,  395,162,195,195,   2,   2,  2] #0
 ANGLE_MAXIMUN               = [1022,1022,1022,680,793,831,638,816,865,656,886,900,1022,513,855,628,825,818,1022,1022,710] #1023
 
-# Initialize self.PortHandler instance
-# Set the port path
 
-
-joint_position=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-temperature=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 class AX_motor:
 
-    def __init__(self,usb_port):
+    def __init__(self,usb_port,dxl_baud_rate):
         
         self.portHandler = PortHandler(usb_port)
         self.packetHandler = PacketHandler(PROTOCOL_VERSION)
 
         self.r =rospy.Rate(10) # 10hz
         self.joints_states = JointState()
-    
-        self.comunication()
+
+        self.joint_position=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        self.joint_position_state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        self.temperature=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        
+        self.comunication(dxl_baud_rate)
         self.set_baud_rate()
         self.set_return_delay_time()
         self.set_angle_minimun_limit()
         self.set_angle_maximun_limit()
+
+        self.sendmovingspeed()
         self.torque(1)
         # self.ini_position()
         # self.torque(0)
@@ -82,21 +74,21 @@ class AX_motor:
         self.joint_state_pub = rospy.Publisher('/joint_states', JointState, queue_size=1)
 
         # Subscribe desired joint position
-        self.joint_goal_sub = rospy.Subscriber('/joint_goals', JointState, self.sendjointpositions, queue_size=1)
+        self.joint_goal_sub = rospy.Subscriber('/joint_goals', JointState, self.sendgoalpositions, queue_size=1)
 
         print("Read Joint goals")
         print(self.read_tempeture())
 
     def loop(self):
         while not rospy.is_shutdown():
-
             self.joint_state_publisher()
             # self.current(DXL_ID,self.portHandler)
             self.r.sleep()
+        print("PORT CLOSE")
         self.portHandler.closePort()
 
 
-    def comunication(self):
+    def comunication(self,dxl_baud_rate):
         # Open port
         if self.portHandler.openPort():
             print("Succeeded to open the port")
@@ -107,7 +99,7 @@ class AX_motor:
             quit()
 
         # Set port baudrate
-        if self.portHandler.setBaudRate(BAUDRATE):
+        if self.portHandler.setBaudRate(dxl_baud_rate):
             print("Succeeded to change the baudrate")
         else:
             print("Failed to change the baudrate")
@@ -182,8 +174,19 @@ class AX_motor:
                 print("%s" % self.packetHandler.getRxPacketError(dxl_error))
         print("Dynamixel has been successfully set inicial position")
 
-    def read_positions(self):
-            # Read present position
+    def convertValue2Radian(self,value):
+        radian = 0.0
+        zero_position = 512
+        if (value == 512):
+            radian = 0.0
+        else:
+            if (value > zero_position):
+                radian = (float)(value - zero_position) * 2.61799 / (float)(zero_position)
+            if (value < zero_position):
+                radian = (float)(zero_position - value) *-2.61799  / (float)(zero_position)
+        return radian   
+
+    def read_positions(self):# Read present position
         for i in DXL_ID:
             dxl_present_position, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, i, AX_PRESENT_POSITION)#AX_PRESENT_POSITION
             if dxl_comm_result != COMM_SUCCESS:
@@ -191,23 +194,39 @@ class AX_motor:
             elif dxl_error != 0:
                 print("%s" % self.packetHandler.getRxPacketError(dxl_error))
             if (dxl_present_position<1023):    
-                    joint_position[i-1]=dxl_present_position
+                    self.joint_position[i-1]=dxl_present_position
+        return self.joint_position
 
+    def read_load(self):# Read present load
+        for i in DXL_ID:
+            dxl_present_temperature, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, i, AX_PRESENT_LOAD)
+            if dxl_comm_result != COMM_SUCCESS:
+                print("%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("%s" % self.packetHandler.getRxPacketError(dxl_error))
+            self.temperature[i-1]=dxl_present_temperature
+        return self.temperature
+    
+    def read_volgate(self):# Read present voltage
+        for i in DXL_ID:
+            dxl_present_temperature, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, i, AX_PRESENT_VOLTAGE)
+            if dxl_comm_result != COMM_SUCCESS:
+                print("%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("%s" % self.packetHandler.getRxPacketError(dxl_error))
+            self.temperature[i-1]=dxl_present_temperature
+        return self.temperature
 
-        return joint_position
-
-    def read_tempeture(self):
-        # Read present temperature
+    def read_tempeture(self):# Read present temperature
         for i in DXL_ID:
             dxl_present_temperature, dxl_comm_result, dxl_error = self.packetHandler.read4ByteTxRx(self.portHandler, i, AX_PRESENT_TEMPERATURE)
             if dxl_comm_result != COMM_SUCCESS:
                 print("%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
             elif dxl_error != 0:
                 print("%s" % self.packetHandler.getRxPacketError(dxl_error))
-            temperature[i-1]=dxl_present_temperature
-        return temperature
+            self.temperature[i-1]=dxl_present_temperature
+        return self.temperature
         
-
     def convertRadian2Value(self,radian):
         value = 0
         zero_position = (1023 + 0)/2
@@ -220,22 +239,32 @@ class AX_motor:
             value = zero_position
         return value
 
+    def sendgoalpositions(self, data):
+        for i in DXL_ID:     
+            dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_GOAL_POSITION, self.convertRadian2Value(data.position[i-1]))
+            if dxl_comm_result != COMM_SUCCESS:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
 
-    def convertValue2Radian(self,value):
-        radian = 0.0
-        zero_position = 512
-        if (value == 512):
-            radian = 0.0
-        else:
-            if (value > zero_position):
-                radian = (float)(value - zero_position) * 2.61799 / (float)(zero_position)
-            if (value < zero_position):
-                radian = (float)(zero_position - value) *-2.61799  / (float)(zero_position)
-        return radian        
+            elif dxl_error != 0:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
 
-    def joint_state_publisher(self):
+    def sendmovingspeed(self):
+        for i in DXL_ID:     
+            dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_MOVING_SPEED, 200)
+            if dxl_comm_result != COMM_SUCCESS:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
 
+    def sendtorquelimit(self):
+        for i in DXL_ID:     
+            dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_TORQUE_LIMIT, 1023)
+            if dxl_comm_result != COMM_SUCCESS:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
+            elif dxl_error != 0:
+                print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
         
+    def joint_state_publisher(self):
         self.joints_states = JointState()
         self.joints_states.header = Header()
         self.joints_states.header.stamp = rospy.Time.now()
@@ -244,23 +273,17 @@ class AX_motor:
         joint_position=self.read_positions()
         
         for i in range(0,21):
-            joint_position_state[i]=self.convertValue2Radian(joint_position[i])
+            self.joint_position_state[i]=self.convertValue2Radian(joint_position[i])
 
-        self.joints_states.position = joint_position_state
+        self.joints_states.position = self.joint_position_state
         self.joints_states.velocity = []
         self.joints_states.effort = []
         self.joint_state_pub.publish(self.joints_states)
 
 
-    def sendjointpositions(self, data):
-        for i in DXL_ID:     
-            dxl_comm_result, dxl_error = self.packetHandler.write4ByteTxRx(self.portHandler, i, AX_GOAL_POSITION, self.convertRadian2Value(data.position[i-1]))
-            if dxl_comm_result != COMM_SUCCESS:
-                print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
 
-            elif dxl_error != 0:
-                print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
-        
+
+
 if __name__ == '__main__':
 
     rospy.init_node("dynamixel_motors_communication")
@@ -268,7 +291,7 @@ if __name__ == '__main__':
     usb_port = rospy.get_param('~usb_port')
     dxl_baud_rate = rospy.get_param('~dxl_baud_rate')
 
-    motor = AX_motor(usb_port)
+    motor = AX_motor(usb_port,dxl_baud_rate)
     motor.loop()
 
 
