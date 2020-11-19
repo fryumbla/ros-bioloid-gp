@@ -1,0 +1,3 @@
+[submodule "bioloid_sdk/DynamixelSDK"]
+	path = bioloid_sdk/DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK.git
