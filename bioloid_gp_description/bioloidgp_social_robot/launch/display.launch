@@ -6,9 +6,9 @@
   
   <!-- <param name="use_gui" value="$(arg gui)" /> -->
 
-  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
+  <!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
 		<remap from="/joint_states" to="/joint_goals" /> 
-  </node>
+  </node> -->
   
 	
 	<!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/> -->

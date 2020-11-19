@@ -44,7 +44,6 @@ ANGLE_MINIMUN               = [2,   2,   350,   2,195,233,204,384,363,151,120,13
 ANGLE_MAXIMUN               = [1022,1022,1022,680,793,831,638,816,865,656,886,900,1022,513,855,628,825,818,1022,1022,710] #1023
 
 
-
 class AX_motor:
 
     def __init__(self,usb_port,dxl_baud_rate):
@@ -71,16 +70,18 @@ class AX_motor:
         # self.torque(0)
 
         # Publish current robot state
-        self.joint_state_pub = rospy.Publisher('/joint_states', JointState, queue_size=1)
+        self.joint_state_pub = rospy.Publisher('/joint_states', JointState, queue_size=10)
 
         # Subscribe desired joint position
-        self.joint_goal_sub = rospy.Subscriber('/joint_goals', JointState, self.sendgoalpositions, queue_size=1)
+        self.joint_goal_sub = rospy.Subscriber('/joint_goals', JointState, self.sendgoalpositions, queue_size=5)
 
         print("Read Joint goals")
         print(self.read_tempeture())
 
     def loop(self):
         while not rospy.is_shutdown():
+            
+            rospy.spin()
             self.joint_state_publisher()
             # self.current(DXL_ID,self.portHandler)
             self.r.sleep()
@@ -244,13 +245,12 @@ class AX_motor:
             dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_GOAL_POSITION, self.convertRadian2Value(data.position[i-1]))
             if dxl_comm_result != COMM_SUCCESS:
                 print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
-
             elif dxl_error != 0:
                 print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
-
+        self.joint_state_publisher()
     def sendmovingspeed(self):
         for i in DXL_ID:     
-            dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_MOVING_SPEED, 200)
+            dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_MOVING_SPEED, 50)
             if dxl_comm_result != COMM_SUCCESS:
                 print("Dynamixel: ",i,"%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
             elif dxl_error != 0:
