@@ -52,9 +52,11 @@ Please install all the packages listed below in your Ubuntu PC or Jetson Nano, i
 
 ### 1.3 Build
 
-Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. `catkin_make` your workspace.
+Extract the metapackage `ros-bioloid-gp` into `${ros_workspace}/src`. and then initialize the submodules and `catkin_make` your workspace.
 ```
 git clone --recursive https://github.com/fryumbla/ros-bioloid-gp.git
+git submodule init
+git submodule update
 catkin_make
 ```
 

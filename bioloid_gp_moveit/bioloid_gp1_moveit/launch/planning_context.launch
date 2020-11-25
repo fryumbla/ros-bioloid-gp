@@ -6,7 +6,7 @@
   <arg name="robot_description" default="robot_description"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find bioloid_gp1)/urdf/bioloid_gp1.urdf"/>
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find bioloidgp_cfg1)/urdf/bioloidgp_cfg1.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find bioloid_gp1_moveit)/config/bioloid_gp1.srdf" />

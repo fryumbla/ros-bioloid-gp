@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bioloidgp_cfg1">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00352782932313565 -8.76566958775415E-10 0.00275873081896998"
+        rpy="0 0 0" />
+      <mass
+        value="0.114720951662211" />
+      <inertia
+        ixx="5.10425267933586E-05"
+        ixy="-2.31623835059759E-13"
+        ixz="-2.01546265914931E-07"
+        iyy="3.59182635832798E-05"
+        iyz="3.0064333684875E-09"
+        izz="6.20327453583673E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_arm_link_1">
+    <inertial>
+      <origin
+        xyz="-6.0704390847377E-08 -0.00923206723925162 0.00517864249847517"
+        rpy="0 0 0" />
+      <mass
+        value="0.00402029367652144" />
+      <inertia
+        ixx="8.53462226825601E-07"
+        ixy="1.70481193077044E-12"
+        ixz="-1.05162132032576E-12"
+        iyy="1.77130321667598E-06"
+        iyz="2.51193243950455E-07"
+        izz="1.69099459342748E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="continuous">
+    <origin
+      xyz="0.00874999999999916 -0.0564904194241623 0.00274999999997069"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_arm_link_1" />
+    <axis
+      xyz="0 1 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_arm_link_2">
+    <inertial>
+      <origin
+        xyz="-0.000501890512671133 -0.035219108255101 0.003125589769726"
+        rpy="0 0 0" />
+      <mass
+        value="0.0883642393517848" />
+      <inertia
+        ixx="2.19001716690432E-05"
+        ixy="-8.80921683803924E-09"
+        ixz="-1.89476813249764E-07"
+        iyy="1.85292934705817E-05"
+        iyz="2.01292818032304E-07"
+        izz="1.67002940787384E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="continuous">
+    <origin
+      xyz="0 -0.0230095805758359 0.0179999999999591"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="right_arm_link_1" />
+    <child
+      link="right_arm_link_2" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_arm_link_3">
+    <inertial>
+      <origin
+        xyz="0.0041575209563442 0.0477168328995845 -0.0163264630771301"
+        rpy="0 0 0" />
+      <mass
+        value="0.0124405169193281" />
+      <inertia
+        ixx="1.01511820933173E-05"
+        ixy="-7.57219531539408E-09"
+        ixz="-1.05248183888475E-12"
+        iyy="3.65282468945603E-06"
+        iyz="2.51193224626465E-07"
+        izz="9.92898397139805E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_arm_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="continuous">
+    <origin
+      xyz="0 -0.0574 0.0182000000000002"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="right_arm_link_2" />
+    <child
+      link="right_arm_link_3" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_arm_link_1">
+    <inertial>
+      <origin
+        xyz="-6.0704389209798E-08 -0.00923206723925153 0.00517864249847643"
+        rpy="0 0 0" />
+      <mass
+        value="0.00402029367652138" />
+      <inertia
+        ixx="8.53462226825598E-07"
+        ixy="1.70481192908506E-12"
+        ixz="-1.05162131942586E-12"
+        iyy="1.77130321667596E-06"
+        iyz="2.51193243950454E-07"
+        izz="1.69099459342747E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="continuous">
+    <origin
+      xyz="0.00874999999999916 0.0564904194241644 0.00274999999997087"
+      rpy="3.14159265358979 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_arm_link_1" />
+    <axis
+      xyz="0 1 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_arm_link_2">
+    <inertial>
+      <origin
+        xyz="0.000472372493798875 -0.0352486262739742 0.00312558976972632"
+        rpy="0 0 0" />
+      <mass
+        value="0.0883642393517847" />
+      <inertia
+        ixx="2.19001716690432E-05"
+        ixy="-8.80921683803432E-09"
+        ixz="1.92483601194287E-07"
+        iyy="1.85292934705817E-05"
+        iyz="1.80667596411732E-07"
+        izz="1.67002940787383E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="continuous">
+    <origin
+      xyz="0 -0.0230095805758357 0.0179999999999604"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="left_arm_link_1" />
+    <child
+      link="left_arm_link_2" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_arm_link_3">
+    <inertial>
+      <origin
+        xyz="-0.00415756019096623 0.0477168328995841 -0.0163264631919699"
+        rpy="0 0 0" />
+      <mass
+        value="0.0124405169193281" />
+      <inertia
+        ixx="1.01511820933173E-05"
+        ixy="7.5756049392591E-09"
+        ixz="-1.05248182180574E-12"
+        iyy="3.65282468945609E-06"
+        iyz="2.51193263274452E-07"
+        izz="9.92898397139807E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_arm_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="continuous">
+    <origin
+      xyz="0 -0.0573999999999997 0.0182000000000009"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="left_arm_link_2" />
+    <child
+      link="left_arm_link_3" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="torso_link">
+    <inertial>
+      <origin
+        xyz="2.63162407811504E-08 0.032409044434122 -0.00131922984856171"
+        rpy="0 0 0" />
+      <mass
+        value="0.0150306588580906" />
+      <inertia
+        ixx="1.22995746902599E-05"
+        ixy="-5.3600412066856E-12"
+        ixz="4.57561653863303E-15"
+        iyy="1.26743899445148E-05"
+        iyz="-4.84169136516324E-07"
+        izz="1.42781332295549E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/torso_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/torso_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_19"
+    type="fixed">
+    <origin
+      xyz="0.00825000000000042 0 -0.0737500000000006"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="torso_link" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_leg_link_1">
+    <inertial>
+      <origin
+        xyz="-0.0129819085295126 -0.0022850043517216 0.000908026149630939"
+        rpy="0 0 0" />
+      <mass
+        value="0.047405027669223" />
+      <inertia
+        ixx="7.27334637836052E-06"
+        ixy="5.51374282894487E-08"
+        ixz="1.90980207222021E-07"
+        iyy="1.32375639686867E-05"
+        iyz="-1.50339397226268E-09"
+        izz="1.18495804679192E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_9"
+    type="continuous">
+    <origin
+      xyz="-0.0160000000000004 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="torso_link" />
+    <child
+      link="right_leg_link_1" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_leg_link_2">
+    <inertial>
+      <origin
+        xyz="-0.0130339683821673 -0.0436380731762435 -0.000505151739104454"
+        rpy="0 0 0" />
+      <mass
+        value="0.0891171757796175" />
+      <inertia
+        ixx="2.07420488419902E-05"
+        ixy="1.89476813249685E-07"
+        ixz="-1.92483601194147E-07"
+        iyy="1.89661820142661E-05"
+        iyz="-7.78205227092254E-08"
+        izz="1.90005912983823E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_11"
+    type="continuous">
+    <origin
+      xyz="0 -0.0417999999999986 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_leg_link_1" />
+    <child
+      link="right_leg_link_2" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_leg_link_3">
+    <inertial>
+      <origin
+        xyz="0.0139999999999992 0.033556383206639 0.0151934897642461"
+        rpy="0 0 0" />
+      <mass
+        value="0.00701486534628872" />
+      <inertia
+        ixx="5.15587753735926E-06"
+        ixy="-8.79680619489065E-20"
+        ixz="-3.54231666160668E-20"
+        iyy="3.83307916350283E-06"
+        iyz="-4.23987865116599E-07"
+        izz="7.34905050588702E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_13"
+    type="continuous">
+    <origin
+      xyz="0 -0.0744000000000003 -0.0145000000000005"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="right_leg_link_2" />
+    <child
+      link="right_leg_link_3" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_leg_link_4">
+    <inertial>
+      <origin
+        xyz="-0.0133946384168481 0.0211528090768009 0.0129875072823341"
+        rpy="0 0 0" />
+      <mass
+        value="0.0873984262026251" />
+      <inertia
+        ixx="2.17378173151335E-05"
+        ixy="7.46888677739385E-20"
+        ixz="-2.01292818032285E-07"
+        iyy="2.20790808773904E-05"
+        iyz="1.8224248705171E-07"
+        izz="1.31204837284324E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_15"
+    type="continuous">
+    <origin
+      xyz="0 0.075 0.0145000000000001"
+      rpy="-1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="right_leg_link_3" />
+    <child
+      link="right_leg_link_4" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="right_leg_link_5">
+    <inertial>
+      <origin
+        xyz="0.000199999992457789 -0.0271016298640741 0.00578156165290518"
+        rpy="0 0 0" />
+      <mass
+        value="0.0145032303847987" />
+      <inertia
+        ixx="5.46558889534119E-06"
+        ixy="6.68163645650902E-17"
+        ixz="6.34550459531804E-16"
+        iyy="1.3679782272563E-05"
+        iyz="6.23592098456673E-15"
+        izz="9.53948774258581E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/right_leg_link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_17"
+    type="continuous">
+    <origin
+      xyz="-0.0138 0 -9.99999999997669E-05"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="right_leg_link_4" />
+    <child
+      link="right_leg_link_5" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_leg_link_1">
+    <inertial>
+      <origin
+        xyz="-0.0129819085295124 -0.0023400267283165 -0.000908026149630342"
+        rpy="0 0 0" />
+      <mass
+        value="0.047405027669223" />
+      <inertia
+        ixx="7.27334637836053E-06"
+        ixy="3.4512206668867E-08"
+        ixz="-1.90980207222009E-07"
+        iyy="1.32375639686867E-05"
+        iyz="-1.50339397226214E-09"
+        izz="1.18495804679192E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_10"
+    type="continuous">
+    <origin
+      xyz="0.016 0 0"
+      rpy="3.14159265358979 0 -3.14159265358979" />
+    <parent
+      link="torso_link" />
+    <child
+      link="left_leg_link_1" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_leg_link_2">
+    <inertial>
+      <origin
+        xyz="0.0130339683821682 -0.0436673418022037 -0.000534420365142327"
+        rpy="0 0 0" />
+      <mass
+        value="0.0891171757796177" />
+      <inertia
+        ixx="2.07420488419906E-05"
+        ixy="-1.92483601194624E-07"
+        ixz="1.89476813246142E-07"
+        iyy="1.89661820142661E-05"
+        iyz="-7.78205227092315E-08"
+        izz="1.90005912983819E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_12"
+    type="continuous">
+    <origin
+      xyz="0 -0.0418000000000006 0"
+      rpy="3.14159265358979 0 -3.14159265358979" />
+    <parent
+      link="left_leg_link_1" />
+    <child
+      link="left_leg_link_2" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_leg_link_3">
+    <inertial>
+      <origin
+        xyz="-0.0140000000000281 0.0335563832066418 0.0151934897642271"
+        rpy="0 0 0" />
+      <mass
+        value="0.0070148653462887" />
+      <inertia
+        ixx="5.15587753735926E-06"
+        ixy="3.09803717288855E-19"
+        ixz="-2.11373648718155E-18"
+        iyy="3.83307916350282E-06"
+        iyz="-4.23987865116602E-07"
+        izz="7.34905050588702E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_14"
+    type="continuous">
+    <origin
+      xyz="0 -0.0743999999999759 -0.0145000000001236"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="left_leg_link_2" />
+    <child
+      link="left_leg_link_3" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_leg_link_4">
+    <inertial>
+      <origin
+        xyz="0.0134244826302577 0.021122964863385 0.0129875072823342"
+        rpy="0 0 0" />
+      <mass
+        value="0.0873984262026251" />
+      <inertia
+        ixx="2.17378173151335E-05"
+        ixy="-2.49708716625077E-19"
+        ixz="1.80667596411558E-07"
+        iyy="2.20790808773904E-05"
+        iyz="2.02867708672496E-07"
+        izz="1.31204837284324E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_16"
+    type="continuous">
+    <origin
+      xyz="0 0.0750000000000028 0.0144999999999942"
+      rpy="-1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="left_leg_link_3" />
+    <child
+      link="left_leg_link_4" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="left_leg_link_5">
+    <inertial>
+      <origin
+        xyz="-0.000199999992474054 0.0271016298640751 -0.00578156174805481"
+        rpy="0 0 0" />
+      <mass
+        value="0.0145032303847987" />
+      <inertia
+        ixx="5.46558889534117E-06"
+        ixy="6.68365105175287E-17"
+        ixz="-6.35538661148046E-16"
+        iyy="1.36797822725629E-05"
+        iyz="-6.23589303105643E-15"
+        izz="9.53948774258582E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bioloidgp_cfg1/meshes/left_leg_link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_18"
+    type="continuous">
+    <origin
+      xyz="0.0138000000000007 0 -9.9999999999989E-05"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="left_leg_link_4" />
+    <child
+      link="left_leg_link_5" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>

@@ -182,9 +182,9 @@ class AX_motor:
             radian = 0.0
         else:
             if (value > zero_position):
-                radian = (float)(value - zero_position) * 2.61799 / (float)(zero_position)
+                radian = (float)(value - zero_position) * -2.61799 / (float)(zero_position)
             if (value < zero_position):
-                radian = (float)(zero_position - value) *-2.61799  / (float)(zero_position)
+                radian = (float)(zero_position - value) *2.61799  / (float)(zero_position)
         return radian   
 
     def read_positions(self):# Read present position
@@ -233,9 +233,9 @@ class AX_motor:
         zero_position = (1023 + 0)/2
         # 1.570796327 pi  the angle in the dynamixel motor is 0 to 300 degree 150 degree represent 2.61799 radians
         if (radian > 0):
-            value = (int)(radian * (1023 - zero_position) / 2.61799) + zero_position
+            value = zero_position-(int)(radian * (zero_position) / 2.61799)
         elif (radian < 0):
-            value = (int)(-radian * (0 - zero_position) / 2.61799) + zero_position
+            value = (int)(-radian * (zero_position) / 2.61799) + zero_position
         else:
             value = zero_position
         return value
@@ -248,6 +248,7 @@ class AX_motor:
             elif dxl_error != 0:
                 print("Dynamixel: ",i,"%s" % self.packetHandler.getRxPacketError(dxl_error))
         self.joint_state_publisher()
+        
     def sendmovingspeed(self):
         for i in DXL_ID:     
             dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, i, AX_MOVING_SPEED, 50)

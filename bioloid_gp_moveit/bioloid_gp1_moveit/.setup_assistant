@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   URDF:
-    package: bioloid_gp1
-    relative_path: urdf/bioloid_gp1.urdf
+    package: bioloidgp_cfg1
+    relative_path: urdf/bioloidgp_cfg1.urdf
     xacro_args: ""
   SRDF:
     relative_path: config/bioloid_gp1.srdf
