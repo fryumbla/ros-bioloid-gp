@@ -39,37 +39,50 @@ class movement:
             
             number = input ("Enter number: ")
             if (number==1):
-                self.joint_position_state=[0.1,-0.1,0.2,-0.2,-0.6,0.6,0,0,     0,0,0,0,0,0,0,0,0,0,    0,0,0]
+                self.joint_position_state=[-0.1,0.1,-0.2,0.2,0.6,-0.6,0,0,     0,0,0,0,0,0,0,0,0,0,    0,0,0]
                 self.joints_states.position = self.joint_position_state
                 self.pub.publish(self.joints_states)
                 # rospy.sleep(time)
             if (number==2):
-                self.joint_position_state=[0.1,-0.1,0.2,-0.2,-0.6,0.6,0,0,     g30/3,g30/3,0,0,0,0,0,0,g30/3,g30/3,    0,0,0]
+                self.joint_position_state=[-0.1,0.1,-0.2,0.2,0.6,-0.6,0,0,     -g30/3,-g30/3,0,0,0,0,0,0,-g30/3,-g30/3,    0,0,0]
                 self.joints_states.position = self.joint_position_state
                 self.pub.publish(self.joints_states)
                 rospy.sleep(time)
-                self.joint_position_state=[0.1,-0.3,0.2,-0.5,-0.6,0.5,0,0,     g30/3,g30/3,g30,0,g30,0,0,0,g30/3,g30/3,    0,0,0]
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     -g30/3,-g30/3,-g30,0,-g30,0,         0,0,-g30/3,-g30/3,    0,0,0]
                 self.joints_states.position = self.joint_position_state
                 self.pub.publish(self.joints_states)
                 rospy.sleep(time)
-                self.joint_position_state=[0.1,-0.3,0.2,-0.5,-0.6,0.5,0,0,     g30/3,g30/3,g30,g30/3,g30,0,0,-g30/3,g30/3,g30/3,    0,0,0]
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     -g30/3,-g30/3,-g30,-g30/3,-g30,0,0,g30/3,-g30/3,-g30/3,    0,0,0]
                 self.joints_states.position = self.joint_position_state
                 self.pub.publish(self.joints_states)
                 rospy.sleep(time)
-                self.joint_position_state=[0.1,-0.1,0.2,-0.2,-0.6,0.6,0,0,     0,0,g30,g30/3,g30,0,     0,-g30/3,0,0,    0,0,0]
+                self.joint_position_state=[-0.1,0.1,-0.2,0.2,0.6,-0.6,0,0,     0,0,-g30,-g30/3,-g30,0,     0,g30/3,0,0,    0,0,0]
                 self.joints_states.position = self.joint_position_state
                 self.pub.publish(self.joints_states)
                 rospy.sleep(time)
-                # self.joint_position_state=[0.1,-0.3,0.2,-0.5,-0.6,0.5,0,0,     -g30/3,-g30/3,g30*4/3,g30/3,g30*4/3,0,     g30*2/3,-g30,-g30/3,0,    0,0,0]
+
+                
+            if (number==3):
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     g30/3,g30/3,-g30*1/3,g30/3,-g30*3/3,g30*3/3,     -g30*2/3,g30*2/3,g30/3,g30/3,    0,0,0]
+                self.joints_states.position = self.joint_position_state
+                self.pub.publish(self.joints_states)
+                rospy.sleep(time)
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     g30/3,g30/3,0,g30,0,g30,     0,0,g30/3,g30/3,    0,0,0]
+                self.joints_states.position = self.joint_position_state
+                self.pub.publish(self.joints_states)
+                rospy.sleep(time)
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     g30/3,g30/3,g30*1/3,g30,0,g30,     -g30*1/3,0,g30/3,g30/3,    0,0,0]
+                self.joints_states.position = self.joint_position_state
+                self.pub.publish(self.joints_states)
+                rospy.sleep(time)
+                self.joint_position_state=[-0.1,0.3,-0.2,0.5,0.6,-0.5,0,0,     -g30/3,-g30/3,0,g30,0,g30,     0,g30*1/3,-g30/3,-g30/3,    0,0,0]
+                self.joints_states.position = self.joint_position_state
+                self.pub.publish(self.joints_states)
+                rospy.sleep(time)
+                # self.joint_position_state=[-0.1,0.1,-0.2,0.2,0.6,-0.6,0,0,     -g30/3,-g30/3,0,0,0,0,           0,0,-g30/3,-g30/3,    0,0,0]
                 # self.joints_states.position = self.joint_position_state
                 # self.pub.publish(self.joints_states)
                 # rospy.sleep(time)
-                
-            if (number==3):
-                self.joint_position_state=[0.3,-0.1,0.5,-0.2,-0.6,0.6,0,0,     -g30/3,-g30/3,g30*4/3,g30/3,g30*4/3,0,     g30*2/3,-g30,-g30/3,0,    0,0,0]
-                self.joints_states.position = self.joint_position_state
-                self.pub.publish(self.joints_states)
-                rospy.sleep(time)
             # if (number==4):
             #     self.joint_position_state=[0.1,-0.3,0.2,-0.5,-0.6,0.5,0,0,     g30/3,g30/3,g30,g30/3,g30,0,0,-g30/3,g30/3,g30/3,    0,0,0]
             #     self.joints_states.position = self.joint_position_state

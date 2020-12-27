@@ -37,6 +37,7 @@ Please install all the packages listed below in your Ubuntu PC or Jetson Nano, i
 
 * For description package:
    ```
+   ros-melodic-joint-state-rosserial
    ros-melodic-joint-state-publisher
    ros-melodic-joint-state-publisher-gui
    ```
