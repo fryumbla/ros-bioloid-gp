@@ -9,11 +9,11 @@
 
 ### 1.1. System Requirements
 
-This package is written an tested on **Ubuntu 18.04 + ROS Melodic** environment. Dependencies are also for this environment.
+This package is written an tested on **Ubuntu 20.04 + ROS Noetic** environment. Dependencies are also for this environment.
 
 #### 1.1.1 Desktop 
 
-Install ROS in your Ubuntu 18.04 computer (follow this tutorials): http://wiki.ros.org/melodic/Installation/Ubuntu
+Install ROS in your Ubuntu 18.04 computer (follow this tutorials): http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Create a ROS Workspace: ~/catkin_ws
 
@@ -21,11 +21,11 @@ Create a ROS Workspace: ~/catkin_ws
 
 Getting Jetson Nano Started: https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit
 
-Ros installer (follow this tutorials to install ROS Melodic in jetson nano): http://wiki.ros.org/melodic/Installation/Ubuntu
+Ros installer (follow this tutorials to install ROS noetic in jetson nano): http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
 ```
-sudo apt install ros-melodic-desktop
+sudo apt install ros-noetic-desktop
 ```
 
 Note: “ROS Desktop Full” is a more complete package, however it is not recommended for an embedded platform; 2D/3D simulators will be installed with it and they take too much space on ROM, and are too computationally hungry to be used on the Jetson Nano.
@@ -35,18 +35,10 @@ Note: “ROS Desktop Full” is a more complete package, however it is not recom
 
 Please install all the packages listed below in your Ubuntu PC or Jetson Nano, in the given order.
 
-* For description package:
-   ```
-   ros-melodic-joint-state-rosserial
-   ros-melodic-joint-state-publisher
-   ros-melodic-joint-state-publisher-gui
-   ```
-* ros-melodic-
-* ros-melodic-
-* ros-melodic-
-* ros-melodic-
-* ros-melodic-
-* ros-melodic-moveit
+* ros-noetic-joint-state-rosserial
+* ros-noetic-joint-state-publisher
+* ros-noetic-joint-state-publisher-gui
+* ros-noetic-moveit
 
     <!-- [1] abb_experimental is literally *experimental*, so it is not configured as an `.deb` packag. Therefore, it should be downloaded from the Github reposity. Do `git clone https://github.com/ros-industrial/abb_experimental` inside `${ros_workspace}/src`. -->
 
@@ -63,9 +55,9 @@ catkin_make
 
 ### 1.4. V-REP
 
-The bioloid-gp-project uses  a v-rep simulator (version 3.5.0 or higher).
+The bioloid-gp-project uses  a CoppeliaSim simulator (version V4.2.0 or higher).
 
-Download: [V-REP Linux](http://www.coppeliarobotics.com/downloads.html)
+Download: [CoppeliaSim edu](http://www.coppeliarobotics.com/downloads.html)
 
 Decompress
 ```
